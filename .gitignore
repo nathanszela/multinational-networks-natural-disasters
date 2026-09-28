@@ -1,0 +1,21 @@
+# Data (not redistributable, see data/README.md)
+data/*
+!data/README.md
+*.parquet
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editors, tools and OS files
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Word drafts
+*.docx
+~$*

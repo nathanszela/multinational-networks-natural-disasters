@@ -1,0 +1,1585 @@
+<html><head><meta charset='utf-8'><title>H2 Regression tables</title></head><body>
+<p>Open this file in a browser, select each table, Ctrl+C, then Ctrl+V into Word to get a native formatted table.</p>
+<h2>Abbreviations</h2>
+<table border='1'><tr><th>Abbreviation</th><th>Definition</th></tr><tr><td>D_sudden</td><td>Severity of sudden-onset physical disasters (host country), current year</td></tr><tr><td>D_seasonal</td><td>Severity of seasonal physical disasters (host country), current year — placebo/control shock</td></tr><tr><td>HistFreq_host</td><td>Historical disaster frequency per capita, host country, rolling 20y window (log, mean-centered)</td></tr><tr><td>D_sudden x HistFreq_host</td><td>Interaction: sudden shock x historical disaster proneness — H2 moderator</td></tr><tr><td>GDPpc_host / GDPpc_home</td><td>GDP per capita, constant 2015 USD, lagged one year (t-1)</td></tr><tr><td>GE_host</td><td>Government effectiveness, host country (WGI index)</td></tr><tr><td>T=k / T+k</td><td>Event-study horizon: k years after the base-year shock</td></tr><tr><td>OLS</td><td>Log-linear panel OLS on ln(ENT) or ln(EMP), entity+year fixed effects, clustered SE by dyad — intensive margin (positive counts only)</td></tr><tr><td>PPML</td><td>Poisson pseudo-maximum-likelihood (fepois), entity+year fixed effects, clustered SE by dyad — total margin (zeros included)</td></tr><tr><td>N</td><td>Number of observations</td></tr><tr><td>R² / Pseudo R²</td><td>R-squared (OLS) / Pseudo R-squared (PPML)</td></tr></table>
+<h2>V1 — OLS full coefficient table, all regressors x horizons (ENT)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Horizon</th>
+      <th>T=0</th>
+      <th>T+1</th>
+      <th>T+2</th>
+      <th>T+3</th>
+      <th>T+4</th>
+      <th>T+5</th>
+    </tr>
+    <tr>
+      <th>Regressor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>D_sudden (sudden shock)</th>
+      <td>+0.3528&lt;br&gt;(0.301)</td>
+      <td>+0.1702&lt;br&gt;(0.650)</td>
+      <td>-0.3071&lt;br&gt;(0.390)</td>
+      <td>-0.5231&lt;br&gt;(0.404)</td>
+      <td>-0.2245&lt;br&gt;(0.598)</td>
+      <td>-0.6681*&lt;br&gt;(0.095)</td>
+    </tr>
+    <tr>
+      <th>D_sudden x HistFreq_host</th>
+      <td>-0.1746&lt;br&gt;(0.890)</td>
+      <td>-0.2962&lt;br&gt;(0.776)</td>
+      <td>-1.1317&lt;br&gt;(0.180)</td>
+      <td>-0.4686&lt;br&gt;(0.713)</td>
+      <td>+0.2986&lt;br&gt;(0.823)</td>
+      <td>+0.0492&lt;br&gt;(0.957)</td>
+    </tr>
+    <tr>
+      <th>D_seasonal (placebo)</th>
+      <td>-0.0332&lt;br&gt;(0.768)</td>
+      <td>+0.0442&lt;br&gt;(0.686)</td>
+      <td>+0.0883&lt;br&gt;(0.521)</td>
+      <td>+0.0640&lt;br&gt;(0.636)</td>
+      <td>-0.1129&lt;br&gt;(0.487)</td>
+      <td>-0.0365&lt;br&gt;(0.808)</td>
+    </tr>
+    <tr>
+      <th>ln GDPpc_host</th>
+      <td>+0.5125***&lt;br&gt;(0.000)</td>
+      <td>+0.4550***&lt;br&gt;(0.000)</td>
+      <td>+0.3700***&lt;br&gt;(0.000)</td>
+      <td>+0.2286***&lt;br&gt;(0.005)</td>
+      <td>+0.1724**&lt;br&gt;(0.045)</td>
+      <td>+0.0771&lt;br&gt;(0.378)</td>
+    </tr>
+    <tr>
+      <th>ln GDPpc_home</th>
+      <td>+0.9747***&lt;br&gt;(0.000)</td>
+      <td>+0.8723***&lt;br&gt;(0.000)</td>
+      <td>+0.6063***&lt;br&gt;(0.000)</td>
+      <td>+0.4493***&lt;br&gt;(0.002)</td>
+      <td>+0.2286&lt;br&gt;(0.134)</td>
+      <td>+0.0733&lt;br&gt;(0.645)</td>
+    </tr>
+    <tr>
+      <th>GE_host</th>
+      <td>-0.0149&lt;br&gt;(0.649)</td>
+      <td>+0.0057&lt;br&gt;(0.866)</td>
+      <td>+0.0333&lt;br&gt;(0.325)</td>
+      <td>+0.0759**&lt;br&gt;(0.030)</td>
+      <td>+0.0615*&lt;br&gt;(0.085)</td>
+      <td>+0.0449&lt;br&gt;(0.352)</td>
+    </tr>
+    <tr>
+      <th>ln HistFreq_host</th>
+      <td>-0.0466&lt;br&gt;(0.347)</td>
+      <td>-0.0499&lt;br&gt;(0.325)</td>
+      <td>-0.0248&lt;br&gt;(0.640)</td>
+      <td>+0.0083&lt;br&gt;(0.875)</td>
+      <td>+0.0256&lt;br&gt;(0.628)</td>
+      <td>+0.0489&lt;br&gt;(0.357)</td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>21,744</td>
+      <td>18,983</td>
+      <td>16,680</td>
+      <td>14,581</td>
+      <td>12,573</td>
+      <td>10,652</td>
+    </tr>
+    <tr>
+      <th>Disasters uniques — sudden</th>
+      <td>281</td>
+      <td>248</td>
+      <td>226</td>
+      <td>199</td>
+      <td>174</td>
+      <td>155</td>
+    </tr>
+    <tr>
+      <th>Disasters uniques — seasonal</th>
+      <td>1,093</td>
+      <td>983</td>
+      <td>890</td>
+      <td>793</td>
+      <td>699</td>
+      <td>607</td>
+    </tr>
+    <tr>
+      <th>R²</th>
+      <td>0.028</td>
+      <td>0.022</td>
+      <td>0.013</td>
+      <td>0.007</td>
+      <td>0.003</td>
+      <td>0.001</td>
+    </tr>
+  </tbody>
+</table>
+<h2>V2 — PPML full coefficient table, all regressors x horizons (ENT)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Horizon</th>
+      <th>T=0</th>
+      <th>T+1</th>
+      <th>T+2</th>
+      <th>T+3</th>
+      <th>T+4</th>
+      <th>T+5</th>
+    </tr>
+    <tr>
+      <th>Regressor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>D_sudden (sudden shock)</th>
+      <td>-0.3315&lt;br&gt;(0.455)</td>
+      <td>-0.3404&lt;br&gt;(0.421)</td>
+      <td>-0.0349&lt;br&gt;(0.935)</td>
+      <td>-0.5711&lt;br&gt;(0.157)</td>
+      <td>-0.3773&lt;br&gt;(0.382)</td>
+      <td>-0.7654**&lt;br&gt;(0.042)</td>
+    </tr>
+    <tr>
+      <th>D_sudden x HistFreq_host</th>
+      <td>-0.4974&lt;br&gt;(0.699)</td>
+      <td>-1.1506&lt;br&gt;(0.467)</td>
+      <td>-2.2771&lt;br&gt;(0.190)</td>
+      <td>+0.4977&lt;br&gt;(0.710)</td>
+      <td>+1.5843&lt;br&gt;(0.228)</td>
+      <td>+0.9764&lt;br&gt;(0.416)</td>
+    </tr>
+    <tr>
+      <th>D_seasonal (placebo)</th>
+      <td>+0.0548&lt;br&gt;(0.478)</td>
+      <td>+0.1490&lt;br&gt;(0.137)</td>
+      <td>+0.2117*&lt;br&gt;(0.066)</td>
+      <td>+0.1737&lt;br&gt;(0.269)</td>
+      <td>+0.1526&lt;br&gt;(0.499)</td>
+      <td>-0.0489&lt;br&gt;(0.762)</td>
+    </tr>
+    <tr>
+      <th>ln GDPpc_host</th>
+      <td>+0.3374***&lt;br&gt;(0.005)</td>
+      <td>+0.2667**&lt;br&gt;(0.024)</td>
+      <td>+0.1854&lt;br&gt;(0.123)</td>
+      <td>-0.0002&lt;br&gt;(0.998)</td>
+      <td>-0.1210&lt;br&gt;(0.231)</td>
+      <td>-0.2308***&lt;br&gt;(0.010)</td>
+    </tr>
+    <tr>
+      <th>ln GDPpc_home</th>
+      <td>+0.9372***&lt;br&gt;(0.000)</td>
+      <td>+0.8365***&lt;br&gt;(0.000)</td>
+      <td>+0.7213***&lt;br&gt;(0.000)</td>
+      <td>+0.3981**&lt;br&gt;(0.032)</td>
+      <td>+0.0898&lt;br&gt;(0.640)</td>
+      <td>-0.1611&lt;br&gt;(0.399)</td>
+    </tr>
+    <tr>
+      <th>GE_host</th>
+      <td>-0.0148&lt;br&gt;(0.708)</td>
+      <td>+0.0112&lt;br&gt;(0.777)</td>
+      <td>+0.0165&lt;br&gt;(0.693)</td>
+      <td>+0.0207&lt;br&gt;(0.665)</td>
+      <td>-0.0136&lt;br&gt;(0.791)</td>
+      <td>-0.0147&lt;br&gt;(0.824)</td>
+    </tr>
+    <tr>
+      <th>ln HistFreq_host</th>
+      <td>-0.0503&lt;br&gt;(0.463)</td>
+      <td>-0.0739&lt;br&gt;(0.226)</td>
+      <td>-0.0637&lt;br&gt;(0.262)</td>
+      <td>-0.0484&lt;br&gt;(0.369)</td>
+      <td>-0.0019&lt;br&gt;(0.972)</td>
+      <td>-0.0070&lt;br&gt;(0.901)</td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>25,798</td>
+      <td>23,343</td>
+      <td>20,906</td>
+      <td>18,496</td>
+      <td>16,110</td>
+      <td>13,770</td>
+    </tr>
+    <tr>
+      <th>Disasters uniques — sudden</th>
+      <td>289</td>
+      <td>259</td>
+      <td>237</td>
+      <td>211</td>
+      <td>188</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <th>Disasters uniques — seasonal</th>
+      <td>1,119</td>
+      <td>1,019</td>
+      <td>925</td>
+      <td>830</td>
+      <td>741</td>
+      <td>644</td>
+    </tr>
+    <tr>
+      <th>Pseudo R²</th>
+      <td>0.976</td>
+      <td>0.977</td>
+      <td>0.978</td>
+      <td>0.978</td>
+      <td>0.979</td>
+      <td>0.980</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Main results summary — ENT (OLS vs PPML, focal coefficients by horizon)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS(ENT) N</th>
+      <th>OLS β_sudden</th>
+      <th>OLS p_sudden</th>
+      <th>OLS sig_sudden</th>
+      <th>OLS β_interact</th>
+      <th>OLS p_interact</th>
+      <th>OLS sig_interact</th>
+      <th>PPML β_sudden</th>
+      <th>PPML p_sudden</th>
+      <th>PPML sig_sudden</th>
+      <th>PPML β_interact</th>
+      <th>PPML p_interact</th>
+      <th>PPML sig_interact</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>21744</td>
+      <td>0.3530</td>
+      <td>0.3010</td>
+      <td></td>
+      <td>-0.1750</td>
+      <td>0.8900</td>
+      <td></td>
+      <td>-0.3320</td>
+      <td>0.4550</td>
+      <td></td>
+      <td>-0.4970</td>
+      <td>0.6990</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>18983</td>
+      <td>0.1700</td>
+      <td>0.6500</td>
+      <td></td>
+      <td>-0.2960</td>
+      <td>0.7760</td>
+      <td></td>
+      <td>-0.3400</td>
+      <td>0.4210</td>
+      <td></td>
+      <td>-1.1510</td>
+      <td>0.4670</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>16680</td>
+      <td>-0.3070</td>
+      <td>0.3900</td>
+      <td></td>
+      <td>-1.1320</td>
+      <td>0.1800</td>
+      <td></td>
+      <td>-0.0350</td>
+      <td>0.9350</td>
+      <td></td>
+      <td>-2.2770</td>
+      <td>0.1900</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>14581</td>
+      <td>-0.5230</td>
+      <td>0.4040</td>
+      <td></td>
+      <td>-0.4690</td>
+      <td>0.7130</td>
+      <td></td>
+      <td>-0.5710</td>
+      <td>0.1570</td>
+      <td></td>
+      <td>0.4980</td>
+      <td>0.7100</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>12573</td>
+      <td>-0.2240</td>
+      <td>0.5980</td>
+      <td></td>
+      <td>0.2990</td>
+      <td>0.8230</td>
+      <td></td>
+      <td>-0.3770</td>
+      <td>0.3820</td>
+      <td></td>
+      <td>1.5840</td>
+      <td>0.2280</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>10652</td>
+      <td>-0.6680</td>
+      <td>0.0950</td>
+      <td>*</td>
+      <td>0.0490</td>
+      <td>0.9570</td>
+      <td></td>
+      <td>-0.7650</td>
+      <td>0.0420</td>
+      <td>**</td>
+      <td>0.9760</td>
+      <td>0.4160</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Robustness summary — EMP (OLS vs PPML, focal coefficients by horizon)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS(EMP) N</th>
+      <th>OLS β_sudden</th>
+      <th>OLS p_sudden</th>
+      <th>OLS sig_sudden</th>
+      <th>OLS β_interact</th>
+      <th>OLS p_interact</th>
+      <th>OLS sig_interact</th>
+      <th>PPML β_sudden</th>
+      <th>PPML p_sudden</th>
+      <th>PPML sig_sudden</th>
+      <th>PPML β_interact</th>
+      <th>PPML p_interact</th>
+      <th>PPML sig_interact</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>15755</td>
+      <td>-0.9900</td>
+      <td>0.3520</td>
+      <td></td>
+      <td>2.3760</td>
+      <td>0.4070</td>
+      <td></td>
+      <td>-0.6100</td>
+      <td>0.3240</td>
+      <td></td>
+      <td>-1.7990</td>
+      <td>0.3250</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>13363</td>
+      <td>-0.6730</td>
+      <td>0.5470</td>
+      <td></td>
+      <td>1.4280</td>
+      <td>0.7090</td>
+      <td></td>
+      <td>0.0410</td>
+      <td>0.9290</td>
+      <td></td>
+      <td>-1.1850</td>
+      <td>0.5480</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>11698</td>
+      <td>-0.4690</td>
+      <td>0.4760</td>
+      <td></td>
+      <td>-1.7100</td>
+      <td>0.4850</td>
+      <td></td>
+      <td>-0.3680</td>
+      <td>0.4960</td>
+      <td></td>
+      <td>-1.1210</td>
+      <td>0.5560</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>10177</td>
+      <td>-1.7330</td>
+      <td>0.0360</td>
+      <td>**</td>
+      <td>1.9100</td>
+      <td>0.5150</td>
+      <td></td>
+      <td>-0.9700</td>
+      <td>0.0680</td>
+      <td>*</td>
+      <td>1.1200</td>
+      <td>0.4850</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>8756</td>
+      <td>0.1980</td>
+      <td>0.7710</td>
+      <td></td>
+      <td>-1.5780</td>
+      <td>0.5290</td>
+      <td></td>
+      <td>-0.1810</td>
+      <td>0.5610</td>
+      <td></td>
+      <td>0.3360</td>
+      <td>0.8300</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>7437</td>
+      <td>0.7030</td>
+      <td>0.2870</td>
+      <td></td>
+      <td>-1.7650</td>
+      <td>0.3940</td>
+      <td></td>
+      <td>0.6180</td>
+      <td>0.3680</td>
+      <td></td>
+      <td>3.8170</td>
+      <td>0.0020</td>
+      <td>***</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Focal coefficients (4 vars) — ENT, OLS vs PPML, all horizons</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">N</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>sudden</th>
+      <th>sudden</th>
+      <th>interact</th>
+      <th>interact</th>
+      <th>seasonal</th>
+      <th>seasonal</th>
+      <th>hist</th>
+      <th>hist</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>21,744</td>
+      <td>25,779</td>
+      <td>+0.353 (0.301)</td>
+      <td>-0.332 (0.455)</td>
+      <td>-0.175 (0.890)</td>
+      <td>-0.497 (0.699)</td>
+      <td>-0.033 (0.768)</td>
+      <td>+0.055 (0.478)</td>
+      <td>-0.047 (0.347)</td>
+      <td>-0.050 (0.463)</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>18,983</td>
+      <td>23,214</td>
+      <td>+0.170 (0.650)</td>
+      <td>-0.340 (0.421)</td>
+      <td>-0.296 (0.776)</td>
+      <td>-1.151 (0.467)</td>
+      <td>+0.044 (0.686)</td>
+      <td>+0.149 (0.137)</td>
+      <td>-0.050 (0.325)</td>
+      <td>-0.074 (0.226)</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>16,680</td>
+      <td>20,580</td>
+      <td>-0.307 (0.390)</td>
+      <td>-0.035 (0.935)</td>
+      <td>-1.132 (0.180)</td>
+      <td>-2.277 (0.190)</td>
+      <td>+0.088 (0.521)</td>
+      <td>+0.212* (0.066)</td>
+      <td>-0.025 (0.640)</td>
+      <td>-0.064 (0.262)</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>14,581</td>
+      <td>18,105</td>
+      <td>-0.523 (0.404)</td>
+      <td>-0.571 (0.157)</td>
+      <td>-0.469 (0.713)</td>
+      <td>+0.498 (0.710)</td>
+      <td>+0.064 (0.636)</td>
+      <td>+0.174 (0.269)</td>
+      <td>+0.008 (0.875)</td>
+      <td>-0.048 (0.369)</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>12,573</td>
+      <td>15,676</td>
+      <td>-0.224 (0.598)</td>
+      <td>-0.377 (0.382)</td>
+      <td>+0.299 (0.823)</td>
+      <td>+1.584 (0.228)</td>
+      <td>-0.113 (0.487)</td>
+      <td>+0.153 (0.499)</td>
+      <td>+0.026 (0.628)</td>
+      <td>-0.002 (0.972)</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>10,652</td>
+      <td>13,287</td>
+      <td>-0.668* (0.095)</td>
+      <td>-0.765** (0.042)</td>
+      <td>+0.049 (0.957)</td>
+      <td>+0.976 (0.416)</td>
+      <td>-0.036 (0.808)</td>
+      <td>-0.049 (0.762)</td>
+      <td>+0.049 (0.357)</td>
+      <td>-0.007 (0.901)</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Focal coefficients (4 vars) — EMP robustness, OLS vs PPML, all horizons</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">N</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>sudden</th>
+      <th>sudden</th>
+      <th>interact</th>
+      <th>interact</th>
+      <th>seasonal</th>
+      <th>seasonal</th>
+      <th>hist</th>
+      <th>hist</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>15,755</td>
+      <td>17,223</td>
+      <td>-0.990 (0.352)</td>
+      <td>-0.610 (0.324)</td>
+      <td>+2.376 (0.407)</td>
+      <td>-1.799 (0.325)</td>
+      <td>-0.236 (0.494)</td>
+      <td>-0.475 (0.253)</td>
+      <td>+0.050 (0.675)</td>
+      <td>+0.205* (0.058)</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>13,363</td>
+      <td>15,482</td>
+      <td>-0.673 (0.547)</td>
+      <td>+0.041 (0.929)</td>
+      <td>+1.428 (0.709)</td>
+      <td>-1.185 (0.548)</td>
+      <td>-0.031 (0.900)</td>
+      <td>-0.021 (0.950)</td>
+      <td>+0.074 (0.547)</td>
+      <td>+0.185* (0.069)</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>11,698</td>
+      <td>13,806</td>
+      <td>-0.469 (0.476)</td>
+      <td>-0.368 (0.496)</td>
+      <td>-1.710 (0.485)</td>
+      <td>-1.121 (0.556)</td>
+      <td>-0.148 (0.537)</td>
+      <td>-0.141 (0.600)</td>
+      <td>+0.081 (0.507)</td>
+      <td>+0.175* (0.052)</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>10,177</td>
+      <td>12,112</td>
+      <td>-1.733** (0.036)</td>
+      <td>-0.970* (0.068)</td>
+      <td>+1.910 (0.515)</td>
+      <td>+1.120 (0.485)</td>
+      <td>+0.229 (0.435)</td>
+      <td>+0.121 (0.318)</td>
+      <td>+0.157 (0.179)</td>
+      <td>+0.198** (0.026)</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>8,756</td>
+      <td>10,494</td>
+      <td>+0.198 (0.771)</td>
+      <td>-0.181 (0.561)</td>
+      <td>-1.578 (0.529)</td>
+      <td>+0.336 (0.830)</td>
+      <td>+0.162 (0.554)</td>
+      <td>+0.550** (0.043)</td>
+      <td>+0.236* (0.096)</td>
+      <td>+0.149* (0.093)</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>7,437</td>
+      <td>8,924</td>
+      <td>+0.703 (0.287)</td>
+      <td>+0.618 (0.368)</td>
+      <td>-1.765 (0.394)</td>
+      <td>+3.817*** (0.002)</td>
+      <td>-0.023 (0.937)</td>
+      <td>-0.124 (0.454)</td>
+      <td>+0.219* (0.064)</td>
+      <td>+0.070 (0.342)</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Disaster coverage by horizon — ENT</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS N</th>
+      <th>OLS n_sudden</th>
+      <th>OLS n_host_sudden</th>
+      <th>OLS n_seasonal</th>
+      <th>OLS n_host_seasonal</th>
+      <th>PPML N</th>
+      <th>PPML n_sudden</th>
+      <th>PPML n_host_sudden</th>
+      <th>PPML n_seasonal</th>
+      <th>PPML n_host_seasonal</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>21,744</td>
+      <td>3,234</td>
+      <td>281</td>
+      <td>12,135</td>
+      <td>1,093</td>
+      <td>25,798</td>
+      <td>3,775</td>
+      <td>289</td>
+      <td>14,175</td>
+      <td>1,119</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>18,983</td>
+      <td>2,793</td>
+      <td>248</td>
+      <td>10,604</td>
+      <td>983</td>
+      <td>23,343</td>
+      <td>3,361</td>
+      <td>259</td>
+      <td>12,766</td>
+      <td>1,019</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>16,680</td>
+      <td>2,486</td>
+      <td>226</td>
+      <td>9,304</td>
+      <td>890</td>
+      <td>20,906</td>
+      <td>3,044</td>
+      <td>237</td>
+      <td>11,391</td>
+      <td>925</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>14,581</td>
+      <td>2,159</td>
+      <td>199</td>
+      <td>8,067</td>
+      <td>793</td>
+      <td>18,496</td>
+      <td>2,669</td>
+      <td>211</td>
+      <td>10,002</td>
+      <td>830</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>12,573</td>
+      <td>1,875</td>
+      <td>174</td>
+      <td>6,935</td>
+      <td>699</td>
+      <td>16,110</td>
+      <td>2,344</td>
+      <td>188</td>
+      <td>8,701</td>
+      <td>741</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>10,652</td>
+      <td>1,656</td>
+      <td>155</td>
+      <td>5,888</td>
+      <td>607</td>
+      <td>13,770</td>
+      <td>2,069</td>
+      <td>168</td>
+      <td>7,427</td>
+      <td>644</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Disaster coverage by horizon — EMP</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS N</th>
+      <th>OLS n_sudden</th>
+      <th>OLS n_host_sudden</th>
+      <th>OLS n_seasonal</th>
+      <th>OLS n_host_seasonal</th>
+      <th>PPML N</th>
+      <th>PPML n_sudden</th>
+      <th>PPML n_host_sudden</th>
+      <th>PPML n_seasonal</th>
+      <th>PPML n_host_seasonal</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>15,755</td>
+      <td>2,506</td>
+      <td>258</td>
+      <td>9,148</td>
+      <td>1,005</td>
+      <td>19,910</td>
+      <td>3,054</td>
+      <td>286</td>
+      <td>11,229</td>
+      <td>1,109</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>13,363</td>
+      <td>2,107</td>
+      <td>229</td>
+      <td>7,785</td>
+      <td>892</td>
+      <td>17,934</td>
+      <td>2,696</td>
+      <td>256</td>
+      <td>10,066</td>
+      <td>1,006</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>11,698</td>
+      <td>1,866</td>
+      <td>205</td>
+      <td>6,803</td>
+      <td>801</td>
+      <td>16,031</td>
+      <td>2,421</td>
+      <td>234</td>
+      <td>8,943</td>
+      <td>913</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>10,177</td>
+      <td>1,628</td>
+      <td>181</td>
+      <td>5,859</td>
+      <td>710</td>
+      <td>14,121</td>
+      <td>2,124</td>
+      <td>210</td>
+      <td>7,800</td>
+      <td>821</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>8,756</td>
+      <td>1,412</td>
+      <td>162</td>
+      <td>5,013</td>
+      <td>621</td>
+      <td>12,266</td>
+      <td>1,862</td>
+      <td>188</td>
+      <td>6,756</td>
+      <td>733</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>7,437</td>
+      <td>1,252</td>
+      <td>140</td>
+      <td>4,252</td>
+      <td>535</td>
+      <td>10,473</td>
+      <td>1,650</td>
+      <td>168</td>
+      <td>5,753</td>
+      <td>631</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Focal coefficients — ENT, 2008-2014 cohort restriction</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">N</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>sudden</th>
+      <th>sudden</th>
+      <th>interact</th>
+      <th>interact</th>
+      <th>seasonal</th>
+      <th>seasonal</th>
+      <th>hist</th>
+      <th>hist</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>11,871</td>
+      <td>13,210</td>
+      <td>+0.175 (0.662)</td>
+      <td>-0.056 (0.876)</td>
+      <td>+2.531** (0.021)</td>
+      <td>+0.485 (0.664)</td>
+      <td>-0.052 (0.827)</td>
+      <td>-0.326 (0.111)</td>
+      <td>-0.020 (0.749)</td>
+      <td>-0.044 (0.509)</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>11,501</td>
+      <td>13,444</td>
+      <td>-0.150 (0.664)</td>
+      <td>-0.375 (0.235)</td>
+      <td>+0.797 (0.387)</td>
+      <td>-0.015 (0.990)</td>
+      <td>-0.097 (0.636)</td>
+      <td>-0.432* (0.050)</td>
+      <td>-0.072 (0.226)</td>
+      <td>-0.082 (0.155)</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>11,279</td>
+      <td>13,501</td>
+      <td>-0.244 (0.594)</td>
+      <td>-0.148 (0.707)</td>
+      <td>-0.605 (0.453)</td>
+      <td>-0.964 (0.543)</td>
+      <td>+0.012 (0.959)</td>
+      <td>+0.009 (0.983)</td>
+      <td>-0.053 (0.389)</td>
+      <td>-0.072 (0.255)</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>11,119</td>
+      <td>13,530</td>
+      <td>-0.102 (0.858)</td>
+      <td>-0.524 (0.171)</td>
+      <td>-0.676 (0.543)</td>
+      <td>+1.151 (0.334)</td>
+      <td>-0.093 (0.598)</td>
+      <td>-0.026 (0.941)</td>
+      <td>+0.019 (0.752)</td>
+      <td>-0.060 (0.387)</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>10,919</td>
+      <td>13,512</td>
+      <td>+0.102 (0.836)</td>
+      <td>-0.389 (0.399)</td>
+      <td>-0.143 (0.915)</td>
+      <td>+1.438 (0.288)</td>
+      <td>-0.129 (0.435)</td>
+      <td>+0.115 (0.653)</td>
+      <td>+0.030 (0.596)</td>
+      <td>+0.022 (0.715)</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>10,652</td>
+      <td>13,287</td>
+      <td>-0.668* (0.095)</td>
+      <td>-0.765** (0.042)</td>
+      <td>+0.049 (0.957)</td>
+      <td>+0.976 (0.416)</td>
+      <td>-0.036 (0.808)</td>
+      <td>-0.049 (0.762)</td>
+      <td>+0.049 (0.357)</td>
+      <td>-0.007 (0.901)</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Focal coefficients — EMP, 2008-2014 cohort restriction</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">N</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>OLS</th>
+      <th>PPML</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>OLS</th>
+      <th>PPML</th>
+      <th>sudden</th>
+      <th>sudden</th>
+      <th>interact</th>
+      <th>interact</th>
+      <th>seasonal</th>
+      <th>seasonal</th>
+      <th>hist</th>
+      <th>hist</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>8,654</td>
+      <td>9,003</td>
+      <td>-1.046 (0.204)</td>
+      <td>-0.289 (0.523)</td>
+      <td>+6.095** (0.019)</td>
+      <td>-0.682 (0.717)</td>
+      <td>-0.161 (0.719)</td>
+      <td>-0.279 (0.407)</td>
+      <td>-0.110 (0.384)</td>
+      <td>+0.131 (0.263)</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>8,063</td>
+      <td>9,093</td>
+      <td>-0.512 (0.628)</td>
+      <td>+0.075 (0.883)</td>
+      <td>+3.245 (0.408)</td>
+      <td>+0.248 (0.887)</td>
+      <td>+0.318 (0.405)</td>
+      <td>+0.016 (0.958)</td>
+      <td>-0.000 (1.000)</td>
+      <td>+0.188 (0.121)</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>7,884</td>
+      <td>9,158</td>
+      <td>-0.596 (0.387)</td>
+      <td>-0.655 (0.228)</td>
+      <td>+0.220 (0.923)</td>
+      <td>+0.818 (0.636)</td>
+      <td>+0.421 (0.329)</td>
+      <td>-0.241 (0.422)</td>
+      <td>-0.019 (0.905)</td>
+      <td>+0.104 (0.363)</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>7,739</td>
+      <td>9,157</td>
+      <td>-2.096** (0.027)</td>
+      <td>-1.042** (0.044)</td>
+      <td>+3.373 (0.272)</td>
+      <td>+1.999 (0.196)</td>
+      <td>+0.191 (0.659)</td>
+      <td>+0.094 (0.773)</td>
+      <td>+0.031 (0.832)</td>
+      <td>+0.165 (0.126)</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>7,621</td>
+      <td>9,094</td>
+      <td>+0.293 (0.702)</td>
+      <td>-0.181 (0.568)</td>
+      <td>-1.849 (0.477)</td>
+      <td>+0.839 (0.584)</td>
+      <td>+0.362 (0.225)</td>
+      <td>+0.360 (0.152)</td>
+      <td>+0.220 (0.172)</td>
+      <td>+0.168 (0.107)</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>7,437</td>
+      <td>8,924</td>
+      <td>+0.703 (0.287)</td>
+      <td>+0.618 (0.368)</td>
+      <td>-1.765 (0.394)</td>
+      <td>+3.817*** (0.002)</td>
+      <td>-0.023 (0.937)</td>
+      <td>-0.124 (0.454)</td>
+      <td>+0.219* (0.064)</td>
+      <td>+0.070 (0.342)</td>
+    </tr>
+  </tbody>
+</table>
+<h2>beta_sudden — Full sample vs 2008-2014 cohort (ENT)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Full OLS beta_s</th>
+      <th>Full PPML beta_s</th>
+      <th>Cohort OLS beta_s</th>
+      <th>Cohort PPML beta_s</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>+0.353 (0.301)</td>
+      <td>-0.332 (0.455)</td>
+      <td>+0.175 (0.662)</td>
+      <td>-0.056 (0.876)</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>+0.170 (0.650)</td>
+      <td>-0.340 (0.421)</td>
+      <td>-0.150 (0.664)</td>
+      <td>-0.375 (0.235)</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>-0.307 (0.390)</td>
+      <td>-0.035 (0.935)</td>
+      <td>-0.244 (0.594)</td>
+      <td>-0.148 (0.707)</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>-0.523 (0.404)</td>
+      <td>-0.571 (0.157)</td>
+      <td>-0.102 (0.858)</td>
+      <td>-0.524 (0.171)</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>-0.224 (0.598)</td>
+      <td>-0.377 (0.382)</td>
+      <td>+0.102 (0.836)</td>
+      <td>-0.389 (0.399)</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>-0.668* (0.095)</td>
+      <td>-0.765** (0.042)</td>
+      <td>-0.668* (0.095)</td>
+      <td>-0.765** (0.042)</td>
+    </tr>
+  </tbody>
+</table>
+<h2>beta_sudden — Full sample vs 2008-2014 cohort (EMP)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Full OLS beta_s</th>
+      <th>Full PPML beta_s</th>
+      <th>Cohort OLS beta_s</th>
+      <th>Cohort PPML beta_s</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>-0.990 (0.352)</td>
+      <td>-0.610 (0.324)</td>
+      <td>-1.046 (0.204)</td>
+      <td>-0.289 (0.523)</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>-0.673 (0.547)</td>
+      <td>+0.041 (0.929)</td>
+      <td>-0.512 (0.628)</td>
+      <td>+0.075 (0.883)</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>-0.469 (0.476)</td>
+      <td>-0.368 (0.496)</td>
+      <td>-0.596 (0.387)</td>
+      <td>-0.655 (0.228)</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>-1.733** (0.036)</td>
+      <td>-0.970* (0.068)</td>
+      <td>-2.096** (0.027)</td>
+      <td>-1.042** (0.044)</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>+0.198 (0.771)</td>
+      <td>-0.181 (0.561)</td>
+      <td>+0.293 (0.702)</td>
+      <td>-0.181 (0.568)</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>+0.703 (0.287)</td>
+      <td>+0.618 (0.368)</td>
+      <td>+0.703 (0.287)</td>
+      <td>+0.618 (0.368)</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Disaster coverage — ENT, 2008-2014 cohort</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS N</th>
+      <th>OLS n_sudden</th>
+      <th>OLS n_host_sudden</th>
+      <th>OLS n_seasonal</th>
+      <th>OLS n_host_seasonal</th>
+      <th>PPML N</th>
+      <th>PPML n_sudden</th>
+      <th>PPML n_host_sudden</th>
+      <th>PPML n_seasonal</th>
+      <th>PPML n_host_seasonal</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>11,871</td>
+      <td>1,785</td>
+      <td>162</td>
+      <td>6,423</td>
+      <td>624</td>
+      <td>25,798</td>
+      <td>3,775</td>
+      <td>289</td>
+      <td>14,175</td>
+      <td>1,119</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>11,501</td>
+      <td>1,745</td>
+      <td>159</td>
+      <td>6,250</td>
+      <td>617</td>
+      <td>23,343</td>
+      <td>3,361</td>
+      <td>259</td>
+      <td>12,766</td>
+      <td>1,019</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>11,279</td>
+      <td>1,719</td>
+      <td>158</td>
+      <td>6,173</td>
+      <td>615</td>
+      <td>20,906</td>
+      <td>3,044</td>
+      <td>237</td>
+      <td>11,391</td>
+      <td>925</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>11,119</td>
+      <td>1,707</td>
+      <td>156</td>
+      <td>6,099</td>
+      <td>612</td>
+      <td>18,496</td>
+      <td>2,669</td>
+      <td>211</td>
+      <td>10,002</td>
+      <td>830</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>10,919</td>
+      <td>1,684</td>
+      <td>154</td>
+      <td>6,012</td>
+      <td>607</td>
+      <td>16,110</td>
+      <td>2,344</td>
+      <td>188</td>
+      <td>8,701</td>
+      <td>741</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>10,652</td>
+      <td>1,656</td>
+      <td>155</td>
+      <td>5,888</td>
+      <td>607</td>
+      <td>13,770</td>
+      <td>2,069</td>
+      <td>168</td>
+      <td>7,427</td>
+      <td>644</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Disaster coverage — EMP, 2008-2014 cohort</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS N</th>
+      <th>OLS n_sudden</th>
+      <th>OLS n_host_sudden</th>
+      <th>OLS n_seasonal</th>
+      <th>OLS n_host_seasonal</th>
+      <th>PPML N</th>
+      <th>PPML n_sudden</th>
+      <th>PPML n_host_sudden</th>
+      <th>PPML n_seasonal</th>
+      <th>PPML n_host_seasonal</th>
+    </tr>
+    <tr>
+      <th>Horizon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T=0</th>
+      <td>8,654</td>
+      <td>1,424</td>
+      <td>150</td>
+      <td>4,862</td>
+      <td>568</td>
+      <td>19,910</td>
+      <td>3,054</td>
+      <td>286</td>
+      <td>11,229</td>
+      <td>1,109</td>
+    </tr>
+    <tr>
+      <th>T+1</th>
+      <td>8,063</td>
+      <td>1,334</td>
+      <td>149</td>
+      <td>4,572</td>
+      <td>555</td>
+      <td>17,934</td>
+      <td>2,696</td>
+      <td>256</td>
+      <td>10,066</td>
+      <td>1,006</td>
+    </tr>
+    <tr>
+      <th>T+2</th>
+      <td>7,884</td>
+      <td>1,306</td>
+      <td>145</td>
+      <td>4,490</td>
+      <td>550</td>
+      <td>16,031</td>
+      <td>2,421</td>
+      <td>234</td>
+      <td>8,943</td>
+      <td>913</td>
+    </tr>
+    <tr>
+      <th>T+3</th>
+      <td>7,739</td>
+      <td>1,298</td>
+      <td>145</td>
+      <td>4,414</td>
+      <td>546</td>
+      <td>14,121</td>
+      <td>2,124</td>
+      <td>210</td>
+      <td>7,800</td>
+      <td>821</td>
+    </tr>
+    <tr>
+      <th>T+4</th>
+      <td>7,621</td>
+      <td>1,278</td>
+      <td>145</td>
+      <td>4,358</td>
+      <td>538</td>
+      <td>12,266</td>
+      <td>1,862</td>
+      <td>188</td>
+      <td>6,756</td>
+      <td>733</td>
+    </tr>
+    <tr>
+      <th>T+5</th>
+      <td>7,437</td>
+      <td>1,252</td>
+      <td>140</td>
+      <td>4,252</td>
+      <td>535</td>
+      <td>10,473</td>
+      <td>1,650</td>
+      <td>168</td>
+      <td>5,753</td>
+      <td>631</td>
+    </tr>
+  </tbody>
+</table>
+</body></html>

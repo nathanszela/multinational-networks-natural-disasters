@@ -1,0 +1,14 @@
+Variable,VIF,Flag
+ln GDPpc_host,5.0677,>> HIGH VIF
+ln Pop_host,3.1297,
+ln GDPpc_home,1.0899,
+ln Pop_home,1.0839,
+ln Dist,1.617,
+Contig,1.261,
+Colony,1.6004,
+Comlang,1.6024,
+Landlocked_host,1.1444,
+ln Area_host,3.2067,
+GE_host,4.8901,
+HistSev_host,2.2393,
+GE_host x HistSev_host,1.8421,

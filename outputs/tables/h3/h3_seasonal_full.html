@@ -1,0 +1,393 @@
+<html><head><meta charset='utf-8'><title>H3 — Seasonal disasters only, full sample 2008-2019</title></head><body><h2>H3 — Seasonal disasters only, full sample 2008-2019</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS ENT
+T=0</th>
+      <th>OLS ENT
+T+1</th>
+      <th>OLS ENT
+T+2</th>
+      <th>OLS ENT
+T+3</th>
+      <th>PPML ENT
+T=0</th>
+      <th>PPML ENT
+T+1</th>
+      <th>PPML ENT
+T+2</th>
+      <th>PPML ENT
+T+3</th>
+      <th>PPML EMP
+T=0</th>
+      <th>PPML EMP
+T+1</th>
+      <th>PPML EMP
+T+2</th>
+      <th>PPML EMP
+T+3</th>
+    </tr>
+    <tr>
+      <th>Variable</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Dse (seasonal severity) coef</th>
+      <td>+0.233*</td>
+      <td>+0.254*</td>
+      <td>+0.157</td>
+      <td>-0.017</td>
+      <td>+0.074</td>
+      <td>+0.093</td>
+      <td>+0.105</td>
+      <td>-0.056</td>
+      <td>-0.608**</td>
+      <td>-0.240</td>
+      <td>-0.281</td>
+      <td>+0.050</td>
+    </tr>
+    <tr>
+      <th>Dse (seasonal severity) [p]</th>
+      <td>[0.068]</td>
+      <td>[0.054]</td>
+      <td>[0.206]</td>
+      <td>[0.907]</td>
+      <td>[0.544]</td>
+      <td>[0.500]</td>
+      <td>[0.513]</td>
+      <td>[0.614]</td>
+      <td>[0.041]</td>
+      <td>[0.184]</td>
+      <td>[0.148]</td>
+      <td>[0.777]</td>
+    </tr>
+    <tr>
+      <th>G&nbsp;&nbsp;(GVC position) coef</th>
+      <td>+0.082</td>
+      <td>+0.052</td>
+      <td>+0.104</td>
+      <td>+0.226</td>
+      <td>+0.157</td>
+      <td>+0.138</td>
+      <td>+0.413**</td>
+      <td>+0.523**</td>
+      <td>-0.486</td>
+      <td>-0.266</td>
+      <td>+0.135</td>
+      <td>+0.281</td>
+    </tr>
+    <tr>
+      <th>G&nbsp;&nbsp;(GVC position) [p]</th>
+      <td>[0.473]</td>
+      <td>[0.667]</td>
+      <td>[0.410]</td>
+      <td>[0.106]</td>
+      <td>[0.411]</td>
+      <td>[0.505]</td>
+      <td>[0.030]</td>
+      <td>[0.012]</td>
+      <td>[0.104]</td>
+      <td>[0.334]</td>
+      <td>[0.552]</td>
+      <td>[0.227]</td>
+    </tr>
+    <tr>
+      <th>H&nbsp;&nbsp;(hist. exposure) coef</th>
+      <td>+0.013</td>
+      <td>+0.013</td>
+      <td>+0.066</td>
+      <td>+0.057</td>
+      <td>+0.133*</td>
+      <td>+0.051</td>
+      <td>+0.043</td>
+      <td>+0.059</td>
+      <td>+0.353***</td>
+      <td>+0.299**</td>
+      <td>+0.335***</td>
+      <td>+0.292***</td>
+    </tr>
+    <tr>
+      <th>H&nbsp;&nbsp;(hist. exposure) [p]</th>
+      <td>[0.769]</td>
+      <td>[0.770]</td>
+      <td>[0.145]</td>
+      <td>[0.234]</td>
+      <td>[0.073]</td>
+      <td>[0.484]</td>
+      <td>[0.548]</td>
+      <td>[0.421]</td>
+      <td>[0.006]</td>
+      <td>[0.013]</td>
+      <td>[0.001]</td>
+      <td>[0.001]</td>
+    </tr>
+    <tr>
+      <th>Dse x G&nbsp;&nbsp;[H3 base] coef</th>
+      <td>-0.748</td>
+      <td>-1.259**</td>
+      <td>-0.271</td>
+      <td>-0.473</td>
+      <td>-0.002</td>
+      <td>+0.825</td>
+      <td>-0.112</td>
+      <td>-0.279</td>
+      <td>-0.573</td>
+      <td>+0.257</td>
+      <td>-0.676</td>
+      <td>+0.496</td>
+    </tr>
+    <tr>
+      <th>Dse x G&nbsp;&nbsp;[H3 base] [p]</th>
+      <td>[0.249]</td>
+      <td>[0.047]</td>
+      <td>[0.639]</td>
+      <td>[0.607]</td>
+      <td>[0.997]</td>
+      <td>[0.261]</td>
+      <td>[0.891]</td>
+      <td>[0.651]</td>
+      <td>[0.644]</td>
+      <td>[0.764]</td>
+      <td>[0.403]</td>
+      <td>[0.488]</td>
+    </tr>
+    <tr>
+      <th>Dse x H coef</th>
+      <td>-0.836</td>
+      <td>-1.154*</td>
+      <td>-0.395</td>
+      <td>-0.718</td>
+      <td>-0.804</td>
+      <td>-0.844</td>
+      <td>-0.294</td>
+      <td>-1.172*</td>
+      <td>-1.656</td>
+      <td>-1.631*</td>
+      <td>-0.770</td>
+      <td>-0.236</td>
+    </tr>
+    <tr>
+      <th>Dse x H [p]</th>
+      <td>[0.209]</td>
+      <td>[0.068]</td>
+      <td>[0.556]</td>
+      <td>[0.252]</td>
+      <td>[0.275]</td>
+      <td>[0.238]</td>
+      <td>[0.711]</td>
+      <td>[0.054]</td>
+      <td>[0.125]</td>
+      <td>[0.095]</td>
+      <td>[0.428]</td>
+      <td>[0.744]</td>
+    </tr>
+    <tr>
+      <th>G&nbsp;&nbsp;x H coef</th>
+      <td>+0.202</td>
+      <td>+0.263*</td>
+      <td>+0.240</td>
+      <td>+0.191</td>
+      <td>+0.934***</td>
+      <td>+0.761***</td>
+      <td>+0.819***</td>
+      <td>+0.805***</td>
+      <td>+0.752*</td>
+      <td>+0.272</td>
+      <td>+0.237</td>
+      <td>+0.111</td>
+    </tr>
+    <tr>
+      <th>G&nbsp;&nbsp;x H [p]</th>
+      <td>[0.175]</td>
+      <td>[0.098]</td>
+      <td>[0.154]</td>
+      <td>[0.305]</td>
+      <td>[0.000]</td>
+      <td>[0.004]</td>
+      <td>[0.002]</td>
+      <td>[0.003]</td>
+      <td>[0.052]</td>
+      <td>[0.419]</td>
+      <td>[0.441]</td>
+      <td>[0.746]</td>
+    </tr>
+    <tr>
+      <th>Dse x G x H&nbsp;&nbsp;[H3 ext] coef</th>
+      <td>+2.207</td>
+      <td>+3.864</td>
+      <td>+3.969</td>
+      <td>+4.347</td>
+      <td>+4.998</td>
+      <td>+12.033***</td>
+      <td>+4.080</td>
+      <td>+0.181</td>
+      <td>-3.956</td>
+      <td>+3.994</td>
+      <td>-0.044</td>
+      <td>+3.366</td>
+    </tr>
+    <tr>
+      <th>Dse x G x H&nbsp;&nbsp;[H3 ext] [p]</th>
+      <td>[0.514]</td>
+      <td>[0.244]</td>
+      <td>[0.305]</td>
+      <td>[0.232]</td>
+      <td>[0.101]</td>
+      <td>[0.000]</td>
+      <td>[0.276]</td>
+      <td>[0.964]</td>
+      <td>[0.642]</td>
+      <td>[0.625]</td>
+      <td>[0.995]</td>
+      <td>[0.563]</td>
+    </tr>
+    <tr>
+      <th>ln(GDP/cap) host coef</th>
+      <td>+0.236***</td>
+      <td>+0.213***</td>
+      <td>+0.091</td>
+      <td>-0.038</td>
+      <td>+0.400**</td>
+      <td>+0.351**</td>
+      <td>+0.241</td>
+      <td>+0.010</td>
+      <td>+0.612***</td>
+      <td>+0.592***</td>
+      <td>+0.315***</td>
+      <td>+0.075</td>
+    </tr>
+    <tr>
+      <th>ln(GDP/cap) host [p]</th>
+      <td>[0.001]</td>
+      <td>[0.004]</td>
+      <td>[0.233]</td>
+      <td>[0.642]</td>
+      <td>[0.010]</td>
+      <td>[0.023]</td>
+      <td>[0.239]</td>
+      <td>[0.900]</td>
+      <td>[0.000]</td>
+      <td>[0.000]</td>
+      <td>[0.007]</td>
+      <td>[0.531]</td>
+    </tr>
+    <tr>
+      <th>ln(GDP/cap) home coef</th>
+      <td>+0.431***</td>
+      <td>+0.441***</td>
+      <td>+0.448***</td>
+      <td>+0.274**</td>
+      <td>+0.840***</td>
+      <td>+0.737***</td>
+      <td>+0.692***</td>
+      <td>+0.394**</td>
+      <td>+0.650**</td>
+      <td>+0.528*</td>
+      <td>+0.723***</td>
+      <td>+0.762***</td>
+    </tr>
+    <tr>
+      <th>ln(GDP/cap) home [p]</th>
+      <td>[0.000]</td>
+      <td>[0.000]</td>
+      <td>[0.000]</td>
+      <td>[0.041]</td>
+      <td>[0.000]</td>
+      <td>[0.000]</td>
+      <td>[0.000]</td>
+      <td>[0.027]</td>
+      <td>[0.034]</td>
+      <td>[0.050]</td>
+      <td>[0.004]</td>
+      <td>[0.001]</td>
+    </tr>
+    <tr>
+      <th>Gov. Eff. host coef</th>
+      <td>-0.064**</td>
+      <td>-0.065**</td>
+      <td>-0.046</td>
+      <td>-0.028</td>
+      <td>-0.059</td>
+      <td>-0.048</td>
+      <td>-0.049</td>
+      <td>-0.008</td>
+      <td>-0.009</td>
+      <td>-0.015</td>
+      <td>-0.007</td>
+      <td>+0.067</td>
+    </tr>
+    <tr>
+      <th>Gov. Eff. host [p]</th>
+      <td>[0.018]</td>
+      <td>[0.018]</td>
+      <td>[0.110]</td>
+      <td>[0.344]</td>
+      <td>[0.127]</td>
+      <td>[0.208]</td>
+      <td>[0.273]</td>
+      <td>[0.849]</td>
+      <td>[0.847]</td>
+      <td>[0.733]</td>
+      <td>[0.876]</td>
+      <td>[0.133]</td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>50,667</td>
+      <td>42,324</td>
+      <td>36,298</td>
+      <td>30,960</td>
+      <td>64,673</td>
+      <td>57,754</td>
+      <td>50,962</td>
+      <td>44,277</td>
+      <td>44,978</td>
+      <td>39,889</td>
+      <td>34,998</td>
+      <td>30,228</td>
+    </tr>
+    <tr>
+      <th>Dyad-years w/ disaster</th>
+      <td>31,913</td>
+      <td>26,563</td>
+      <td>22,646</td>
+      <td>19,062</td>
+      <td>40,215</td>
+      <td>35,655</td>
+      <td>31,218</td>
+      <td>26,767</td>
+      <td>28,105</td>
+      <td>24,637</td>
+      <td>21,451</td>
+      <td>18,265</td>
+    </tr>
+    <tr>
+      <th>Distinct disaster ctry-years</th>
+      <td>393</td>
+      <td>358</td>
+      <td>324</td>
+      <td>288</td>
+      <td>393</td>
+      <td>358</td>
+      <td>324</td>
+      <td>288</td>
+      <td>393</td>
+      <td>358</td>
+      <td>324</td>
+      <td>288</td>
+    </tr>
+  </tbody>
+</table></body></html>

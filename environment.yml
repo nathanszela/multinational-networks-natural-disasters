@@ -1,0 +1,30 @@
+name: mne-disasters
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11          # stable; 3.13 too new for some conda packages
+  # ── Data pipeline ──────────────────────────────
+  - pandas               # data manipulation
+  - numpy                # numerical operations
+  - openpyxl             # read .xlsx files (EM-DAT, WGI)
+  - xlrd                 # read .xls files (CEPII dist_cepii.xls)
+  - pyarrow              # read/write .parquet files
+  - country_converter    # ISO country code conversion
+  # ── Statistics & econometrics ──────────────────
+  - statsmodels          # OLS, logit, HAC standard errors
+  - scipy                # statistical tests, distributions
+  # ── Visualisation ──────────────────────────────
+  - matplotlib           # base plotting
+  - seaborn              # statistical plots (heatmaps, distribution plots)
+  - plotly               # interactive plots (EDA notebook)
+  - geopandas            # optional choropleth (EM-DAT bias notebook)
+  # ── Notebooks ──────────────────────────────────
+  - jupyter              # Jupyter notebooks
+  - ipykernel            # lets VSCode run .ipynb notebooks
+  # ── Pip-only packages (not on conda channels) ──
+  - pip
+  - pip:
+      - eurostat          # Eurostat API (FATS download)
+      - linearmodels      # panel FE models: PanelOLS, clustered SE
+      - pyfixest          # PPML with high-dimensional fixed effects (RQ2, RQ3)

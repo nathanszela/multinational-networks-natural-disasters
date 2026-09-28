@@ -1,0 +1,5 @@
+Horizon,t_obs (DxG_x_HI),p dyad-clustered (CRV1),p host-clustered (CRV1),p randomization,valid draws,failed draws
+T=0,1.634,0.1023,0.0079,0.218,500,0
+T+1,3.273,0.0011,0.0114,0.128,500,0
+T+2,2.329,0.0198,0.0736,0.272,500,0
+T+3,1.129,0.259,0.0036,0.296,500,0
